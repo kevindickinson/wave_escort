@@ -9,14 +9,3 @@ export default function PurchasePage() {
     </section>
   );
 }
-export default function PurchasePage() {
-  return (
-    <main>
-      <h1>Purchase</h1>
-      <p>Register interest to purchase the Wave Escort device.</p>
-      <p>Email us at <a href="mailto:info@waveescort.com">info@waveescort.com</a>.</p>
-    </main>
-  );
-}
-
-
