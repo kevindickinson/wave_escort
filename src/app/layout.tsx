@@ -15,23 +15,7 @@ export const metadata: Metadata = {
 };
 
 function Nav() {
-  return (
-    <header>
-      <a href="#main" className="skip-link">Skip to content</a>
-      <div className="container nav">
-        <ActiveLink href="/" className="brand" aria-label="Wave Escort home">
-          Wave Escort
-        </ActiveLink>
-        <nav aria-label="Primary navigation">
-          <ActiveLink href="/" prefetch>Home</ActiveLink>
-          <ActiveLink href="/purchase" prefetch>Purchase</ActiveLink>
-          <ActiveLink href="/how-it-works" prefetch>How it Works</ActiveLink>
-          <ActiveLink href="/investors" prefetch>Investors</ActiveLink>
-          <ActiveLink href="/contact" prefetch>Contact Us</ActiveLink>
-        </nav>
-      </div>
-    </header>
-  );
+  return null;
 }
 
 function Footer() {
