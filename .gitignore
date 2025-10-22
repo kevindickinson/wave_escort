@@ -3,9 +3,9 @@ node_modules
 .env*
 *.log
 out
-node_modules
-.next
-.env*
-out
+
+# Large video files
+public/assets/*.mov
+public/assets/*.mp4
 
 
