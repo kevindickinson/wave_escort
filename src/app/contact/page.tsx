@@ -33,9 +33,16 @@ function ContactForm() {
 
   if (status === 'sent') {
     return (
-      <div className="mt-8 max-w-xl rounded-md border border-emerald-400/20 bg-emerald-500/10 p-6 text-emerald-200">
-        <div className="text-emerald-300 font-semibold">Thanks — your message has been sent.</div>
-        <p className="mt-2 text-emerald-200/90">I'll get back to you shortly.</p>
+      <div className="mt-8 max-w-xl rounded-xl border border-white/10 bg-white/5 p-6 md:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="rounded-full bg-emerald-500/20 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-emerald-400">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-white">Message Sent Successfully!</h3>
+        </div>
+        <p className="text-white/80">Thanks for reaching out. I'll get back to you shortly.</p>
       </div>
     );
   }

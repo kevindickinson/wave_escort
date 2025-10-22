@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="container">
-        <small>© 2022 Wave Escort. All rights reserved.</small>
+    <footer className="border-t border-white/10 py-8 text-center text-sm text-white/60">
+      <div className="container-max">
+        Copyright © 2025 by Kevin Dickinson. All rights reserved.
       </div>
     </footer>
   );
