@@ -1,0 +1,11 @@
+.next
+node_modules
+.env*
+*.log
+out
+node_modules
+.next
+.env*
+out
+
+
