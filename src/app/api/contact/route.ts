@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
           }
         ],
         from: { email: process.env.SENDGRID_FROM_EMAIL },
-        subject: `New contact form submission from ${name || email}`,
+        subject: `WaveEscort.com - New contact form submission from ${name || email}`,
         content: [
           {
             type: 'text/plain',
