@@ -7,26 +7,31 @@ function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   async function submitForm(formData: FormData) {
+    console.log('Form submitted!', formData);
     setStatus('sending');
     const payload = {
       name: String(formData.get('name') || ''),
       email: String(formData.get('email') || ''),
       message: String(formData.get('message') || ''),
     };
+    console.log('Payload:', payload);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+      console.log('Response status:', res.status);
       if (res.ok) {
         // Clear fields and show success UI
         formRef.current?.reset();
         setStatus('sent');
       } else {
+        console.log('Error response:', await res.text());
         setStatus('error');
       }
     } catch (e) {
+      console.log('Fetch error:', e);
       setStatus('error');
     }
   }
@@ -63,7 +68,17 @@ function ContactForm() {
       <input name="email" type="email" disabled={disabled} className="w-full rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 outline-none focus:border-primary" placeholder="Email" required />
       <textarea name="message" disabled={disabled} className="w-full rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 outline-none focus:border-primary" rows={6} placeholder="Message" required />
       <div className="flex items-center gap-3">
-        <button className="btn-primary w-fit" type="submit" disabled={disabled}>
+        <button 
+          className="btn-primary w-fit" 
+          type="submit" 
+          disabled={disabled}
+          onClick={(e) => {
+            console.log('Button clicked!');
+            e.preventDefault();
+            const fd = new FormData(formRef.current!);
+            submitForm(fd);
+          }}
+        >
           {status === 'sending' ? 'Sending…' : 'Submit'}
         </button>
         {status === 'error' && <span className="text-red-300 text-sm">There was a problem. Please try again.</span>}
