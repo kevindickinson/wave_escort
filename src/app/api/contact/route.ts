@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
       to: process.env.CONTACT_EMAIL || 'your-email@example.com',
       subject: `New contact form submission from ${name || email}`,
-      replyTo: email,
+      reply_to: email,
       text: `Name: ${name || 'Not provided'}\nEmail: ${email}\n\nMessage:\n${message}`,
       html: `
         <h2>New Contact Form Submission</h2>
