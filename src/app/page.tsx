@@ -237,7 +237,7 @@ export default function HomePage() {
       <section className="section" id="contact" style={{textAlign: 'left'}}>
         <div style={{maxWidth: 560, margin: '0 auto'}}>
           <h2>Contact Us</h2>
-          <p className="muted">Have questions or want early access? Send us a message.</p>
+          <p className="muted">Send us a message.</p>
           
           {status === 'sent' && (
             <div style={{
@@ -282,9 +282,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <p className="muted">Aerial photography provided by The Everyday Surfer</p>
-      </section>
     </>
   );
 }
