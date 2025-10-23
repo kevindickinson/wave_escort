@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef, useState } from 'react';
+
 export default function HomePage() {
   return (
     <>
@@ -210,9 +212,9 @@ export default function HomePage() {
               <label className="sr-only" htmlFor="email">Email</label>
               <input id="email" name="email" type="email" placeholder="Email" style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)'}} />
               <label className="sr-only" htmlFor="message">Message</label>
-              <textarea id="message" name="message" placeholder="Message" rows={5} style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)'}} />
+              <textarea id="message" name="message" placeholder="Message" rows={5} style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)', resize:'vertical', fontFamily:'inherit'}} />
             </div>
-            <button type="submit" className="cta" style={{marginTop:12}}>Send</button>
+            <button type="submit" className="cta" style={{marginTop:12, boxShadow:'none'}}>Send</button>
           </form>
         </div>
       </section>
