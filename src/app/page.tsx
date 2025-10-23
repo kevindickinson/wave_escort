@@ -116,7 +116,7 @@ export default function HomePage() {
         <article className="card">
           <div className="card-header">
             <div className="card-icon icon-gradient-7">
-              <img src="/assets/cropped-small-wave copy.png" alt="Self righting icon" />
+              <img src="/assets/selfright-1.png" alt="Self righting icon" />
             </div>
             <h3>Self Righting</h3>
           </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
         <article className="card">
           <div className="card-header">
             <div className="card-icon icon-gradient-8">
-              <img src="/assets/cropped-small-wave copy.png" alt="Wave icon" />
+              <img src="/assets/small wave.png" alt="Wave icon" />
             </div>
             <h3>Catch Nearly Any Size Wave</h3>
           </div>
@@ -179,7 +179,7 @@ export default function HomePage() {
         <article className="card">
           <div className="card-header">
             <div className="card-icon icon-gradient-5">
-              <img src="/assets/hawaii.png" alt="Hawaii icon" />
+              <img src="/assets/tech enabled.png" alt="Tech enabled icon" />
             </div>
             <h3>Tech Enabled Surfing</h3>
           </div>

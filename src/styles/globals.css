@@ -158,8 +158,8 @@ footer {
 }
 
 .card-icon {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -168,8 +168,8 @@ footer {
 }
 
 .card-icon img {
-  width: 24px;
-  height: 24px;
+  width: 48px;
+  height: 48px;
   filter: brightness(0) invert(1);
 }
 
@@ -287,12 +287,12 @@ footer {
   .grid { grid-template-columns: 1fr; }
   .nav a { margin-left: 12px; }
   .card-icon {
-    width: 36px;
-    height: 36px;
+    width: 54px;
+    height: 54px;
   }
   .card-icon img {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
   }
   .card h3 {
     height: 36px;
