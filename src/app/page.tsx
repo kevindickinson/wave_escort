@@ -248,8 +248,8 @@ export default function HomePage() {
               background: 'rgba(16, 185, 129, 0.1)',
               padding: 24
             }}>
-              <div style={{ color: '#6ee7b7', fontWeight: 600 }}>Thanks — your message has been sent.</div>
-              <p style={{ marginTop: 8, color: 'rgba(110, 231, 183, 0.9)' }}>I'll get back to you shortly.</p>
+              <div style={{ color: '#000000', fontWeight: 600 }}>Thanks — your message has been sent.</div>
+              <p style={{ marginTop: 8, color: '#000000' }}>I'll get back to you shortly.</p>
             </div>
           )}
 
