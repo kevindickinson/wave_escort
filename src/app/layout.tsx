@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ActiveLink from '../components/ActiveLink';
+import { Footer } from '../components/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -18,16 +19,6 @@ function Nav() {
   return null;
 }
 
-function Footer() {
-  return (
-    <footer>
-      <div className="container footer-inner">
-        <div className="muted">© {new Date().getFullYear()} Wave Escort</div>
-        <div className="muted">PATENTED</div>
-      </div>
-    </footer>
-  );
-}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -177,9 +177,9 @@ export default function HomePage() {
       <section className="section-banner" id="how-it-works">
         <h3 style={{textAlign: 'center', marginTop: 24, fontSize: '28px'}}>How it Works: A deep dive.</h3>
         <div style={{maxWidth: 1000, margin: '24px auto'}}>
-          <div style={{position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: 12, overflow: 'hidden', background: '#000'}}>
+          <div style={{position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: 12, overflow: 'hidden', background: '#000', border: 'none'}}>
             <iframe
-              style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+              style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', borderRadius: 12}}
               src="https://www.youtube.com/embed/h0PnIviFuX0"
               title="Wave Escort - How it Works"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
