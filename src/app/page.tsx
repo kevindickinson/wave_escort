@@ -3,6 +3,39 @@
 import { useRef, useState } from 'react';
 
 export default function HomePage() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function submitForm(formData: FormData) {
+    console.log('Form submitted!', formData);
+    setStatus('sending');
+    const payload = {
+      name: String(formData.get('name') || ''),
+      email: String(formData.get('email') || ''),
+      message: String(formData.get('message') || ''),
+    };
+    console.log('Payload:', payload);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      console.log('Response status:', res.status);
+      if (res.ok) {
+        // Clear fields and show success UI
+        formRef.current?.reset();
+        setStatus('sent');
+      } else {
+        console.log('Error response:', await res.text());
+        setStatus('error');
+      }
+    } catch (e) {
+      console.log('Fetch error:', e);
+      setStatus('error');
+    }
+  }
+
   return (
     <>
       <section className="hero">
@@ -205,17 +238,47 @@ export default function HomePage() {
         <div style={{maxWidth: 560, margin: '0 auto'}}>
           <h2>Contact Us</h2>
           <p className="muted">Have questions or want early access? Send us a message.</p>
-          <form onSubmit={(e) => e.preventDefault()} aria-label="Contact form">
-            <div style={{display:'grid', gap:12, marginTop: 20}}>
-              <label className="sr-only" htmlFor="name">Name</label>
-              <input id="name" name="name" placeholder="Name" style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)'}} />
-              <label className="sr-only" htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="Email" style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)'}} />
-              <label className="sr-only" htmlFor="message">Message</label>
-              <textarea id="message" name="message" placeholder="Message" rows={5} style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)', resize:'vertical', fontFamily:'inherit'}} />
+          
+          {status === 'sent' && (
+            <div style={{
+              marginTop: 32,
+              maxWidth: 560,
+              borderRadius: 8,
+              border: '1px solid rgba(16, 185, 129, 0.2)',
+              background: 'rgba(16, 185, 129, 0.1)',
+              padding: 24
+            }}>
+              <div style={{ color: '#6ee7b7', fontWeight: 600 }}>Thanks — your message has been sent.</div>
+              <p style={{ marginTop: 8, color: 'rgba(110, 231, 183, 0.9)' }}>I'll get back to you shortly.</p>
             </div>
-            <button type="submit" className="cta" style={{marginTop:12, boxShadow:'none'}}>Send</button>
-          </form>
+          )}
+
+          {status !== 'sent' && (
+            <form
+              ref={formRef}
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                await submitForm(fd);
+              }}
+              aria-label="Contact form"
+            >
+              <div style={{display:'grid', gap:12, marginTop: 20}}>
+                <label className="sr-only" htmlFor="name">Name</label>
+                <input id="name" name="name" placeholder="Name" disabled={status === 'sending'} style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)'}} />
+                <label className="sr-only" htmlFor="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Email" required disabled={status === 'sending'} style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)'}} />
+                <label className="sr-only" htmlFor="message">Message</label>
+                <textarea id="message" name="message" placeholder="Message" rows={5} required disabled={status === 'sending'} style={{padding:'10px 12px', borderRadius:8, border:'1px solid var(--border)', background:'var(--bg-soft)', color:'var(--text)', resize:'vertical', fontFamily:'inherit'}} />
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 12 }}>
+                <button type="submit" className="cta" disabled={status === 'sending'} style={{marginTop:12, boxShadow:'none'}}>
+                  {status === 'sending' ? 'Sending…' : 'Send'}
+                </button>
+                {status === 'error' && <span style={{ color: '#fca5a5', fontSize: '0.875rem' }}>There was a problem. Please try again.</span>}
+              </div>
+            </form>
+          )}
         </div>
       </section>
 
