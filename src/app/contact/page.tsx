@@ -69,13 +69,15 @@ function ContactForm() {
       <textarea name="message" disabled={disabled} className="w-full rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/60 outline-none focus:border-primary" rows={6} placeholder="Message" required />
       <div className="flex items-center gap-3">
         <button 
-          className="btn-primary w-fit" 
+          className="cta" 
           type="submit" 
           disabled={disabled}
           onClick={(e) => {
             console.log('Button clicked!');
             e.preventDefault();
+            console.log('Form data:', formRef.current);
             const fd = new FormData(formRef.current!);
+            console.log('FormData created:', fd);
             submitForm(fd);
           }}
         >
