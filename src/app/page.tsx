@@ -215,7 +215,7 @@ export default function HomePage() {
           <div style={{position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: 12, overflow: 'hidden', background: '#000', border: 'none'}}>
             <iframe
               style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none', borderRadius: 12}}
-              src="https://www.youtube.com/embed/h0PnIviFuX0"
+              src="https://www.youtube.com/embed/5wCd6e77pCc"
               title="Wave Escort - How it Works"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
